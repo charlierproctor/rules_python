@@ -52,6 +52,8 @@ par_binary(
         requirement("pip"),
         requirement("wheel"),
     ],
+    default_python_version = "PY3",
+    srcs_version = "PY2AND3"
 )
 
 par_binary(
@@ -61,4 +63,6 @@ par_binary(
     deps = [
         ":whl",
     ],
+    default_python_version = "PY3",
+    srcs_version = "PY2AND3"
 )

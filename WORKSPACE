@@ -35,9 +35,9 @@ load("@io_bazel_skydoc//skylark:skylark.bzl", "skydoc_repositories")
 skydoc_repositories()
 
 # Requirements for building our piptool.
-load("//python:pip.bzl", "pip_import")
+load("//python:pip.bzl", "pip3_import")
 
-pip_import(
+pip3_import(
     name = "piptool_deps",
     requirements = "//python:requirements.txt",
 )
@@ -53,7 +53,7 @@ git_repository(
     name = "subpar",
     remote = "https://github.com/google/subpar",
     # HEAD as of 2018/02/15
-    commit = "1f695ee5d42585a66d9dd9b71219eb8551e59c89",
+    commit = "a4f9b23bf01bcc7a52d458910af65a90ee991aff",
 )
 
 # Test data for WHL tool testing.
@@ -103,7 +103,7 @@ http_file(
 )
 
 # Imports for examples
-pip_import(
+pip3_import(
     name = "examples_helloworld",
     requirements = "//examples/helloworld:requirements.txt",
 )
@@ -115,7 +115,7 @@ load(
 
 _helloworld_install()
 
-pip_import(
+pip3_import(
     name = "examples_version",
     requirements = "//examples/version:requirements.txt",
 )
@@ -127,7 +127,7 @@ load(
 
 _version_install()
 
-pip_import(
+pip3_import(
     name = "examples_boto",
     requirements = "//examples/boto:requirements.txt",
 )
@@ -139,7 +139,7 @@ load(
 
 _boto_install()
 
-pip_import(
+pip3_import(
     name = "examples_extras",
     requirements = "//examples/extras:requirements.txt",
 )

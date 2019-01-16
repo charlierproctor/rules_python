@@ -25,7 +25,7 @@ if [ "$#" -eq 0 ] ; then
   docker build --no-cache -f tools/update_tools/Dockerfile --tag rules_python:update_tools .
   docker run -v"$PWD":/opt/rules_python_source rules_python:update_tools
 elif [ "$#" -eq 1 -a "$1" == "--nodocker" ] ; then
-  bazel build --incompatible_remove_native_git_repository=false  //rules_python:piptool.par //rules_python:whltool.par
+  bazel build --incompatible_remove_native_git_repository=false //rules_python:piptool.par //rules_python:whltool.par
   cp bazel-bin/rules_python/piptool.par tools/piptool.par
   cp bazel-bin/rules_python/whltool.par tools/whltool.par
 else
