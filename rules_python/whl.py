@@ -166,6 +166,7 @@ package(default_visibility = ["//visibility:public"])
 
 load("{requirements}", "requirement")
 
+# MY CUSTOM COMMENT EY (wheel={wheel})
 py_library(
     name = "pkg",
     srcs = glob(["**/*.py"]),
@@ -176,6 +177,7 @@ py_library(
     deps = [{dependencies}],
 )
 {extras}""".format(
+  wheel=args.whl,
   requirements=args.requirements,
   dependencies=','.join([
     'requirement("%s")' % d
