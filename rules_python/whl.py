@@ -135,11 +135,17 @@ class Wheel(object):
   def _parse_metadata(self, content):
     # TODO: handle fields other than just name
     name_pattern = re.compile('Name: (.*)')
+    name = name_pattern.search(content).group(1)
     requires_pattern = re.compile('Requires.*: (.*)')
-    return {
-        'name': name_pattern.search(content).group(1),
+    if name != 'tensorflow':
+      return {
+          'name': name
+      }
+    else:
+      return {
+        'name': name,
         'run_requires': [{'requires': list(filter(None, requires_pattern.findall(content)))}]
-    }
+      }
 
 
 parser = argparse.ArgumentParser(
